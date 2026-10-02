@@ -1,5 +1,6 @@
 {
   "name": "skill-router",
+  "description": "skill-router: makes Claude use the right skill, agent or connector in every chat.",
   "owner": {
     "name": "Hnozaa"
   },
