@@ -1,0 +1,28 @@
+{
+  "description": "skill-router: route every task to the right skill, agent or connector, and re-route when the task changes",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/router\" start",
+            "shell": "bash"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/router\" turn",
+            "shell": "bash"
+          }
+        ]
+      }
+    ]
+  }
+}

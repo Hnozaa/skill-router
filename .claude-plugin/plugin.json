@@ -1,0 +1,6 @@
+{
+  "name": "skill-router",
+  "version": "0.1.0",
+  "description": "Tells Claude to use the right skill, agent or connector at the start of every chat, and to re-route when the conversation changes topic.",
+  "license": "MIT"
+}

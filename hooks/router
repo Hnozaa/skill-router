@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Claude Code adds a SessionStart / UserPromptSubmit hook's stdout to the context.
+#   router start  -> session start, /clear and after compaction: full rules + personal routes
+#   router turn   -> every user message: one-line nudge to re-route when the task changes
+root="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+routes="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/router.md"
+
+if [ "$1" = start ]; then
+  cat "$root/rules.md"
+  if [ -f "$routes" ]; then
+    printf '\n## Personal routes (%s). These win over the rules above.\n\n' "$routes"
+    cat "$routes"
+  fi
+else
+  echo "skill-router: if this message turns to a different kind of task than the one before, re-check the routing rules and personal routes from the start of this session before acting."
+fi
+exit 0

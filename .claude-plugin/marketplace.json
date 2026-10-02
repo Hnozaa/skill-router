@@ -1,0 +1,13 @@
+{
+  "name": "skill-router",
+  "owner": {
+    "name": "Hnozaa"
+  },
+  "plugins": [
+    {
+      "name": "skill-router",
+      "source": "./",
+      "description": "Tells Claude to use the right skill, agent or connector at the start of every chat, and to re-route when the conversation changes topic."
+    }
+  ]
+}
